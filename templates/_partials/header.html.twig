@@ -1,0 +1,23 @@
+<header class="pt-5 bg-gradient-to-r from-green-400 to-teal-600 text-white">
+      <div class="container mx-auto">
+        <nav class="flex justify-between">
+          <a href="/">
+            <img src="static-img/restos-wt-bg.png" class="w-28" alt="" srcset="">
+            <div>
+              <a href="/" class="ml-3">Acceuil</a>
+              <a href="#" class="ml-3">Contact</a>
+              <a href="#" class="ml-3">A propos</a>
+            </div>
+            <div>
+            {% if app.user %}
+              <a href="{{ path('app_logout') }}" class="p-2 items-center rounded-md hover:text-teal-600 hover:bg-white">Deconnexion</a>
+              <a href="{{ path('admin.product.index') }}" class="p-2 items-center rounded-md hover:text-teal-600 hover:bg-white">Admin</a>
+            {% else %}
+              <a href="{{ path('app_login') }}" class="p-2 items-center rounded-md hover:text-teal-600 hover:bg-white">Connexion</a>
+              <a href="{{ path('app_register') }}" class="p-2 items-center rounded-md hover:text-teal-600 hover:bg-white">S'inscrire</a>
+            {% endif %}
+            </div>
+          </a>
+        </nav>
+       </div>
+</header>
