@@ -23,7 +23,8 @@
                 <div class="w-full items-center flex">
                     <div class="w-full justify-between items-center inline-flex">
                         <div class="items-center flex">
-                            <img class="rounded-lg" alt="Ronald image" src="https://pagedone.io/asset/uploads/1701235464.png" />
+                            <i class="las la-user-tie rounded-lg text-4xl"></i>
+                            {# <img class="rounded-lg" alt="Ronald image" src="/static-img/user.png" /> #}
                             <div class="flex-col inline-flex ml-2.5">
                                 <h2 class="text-gray-700 text-sm font-semibold leading-snug">{{ app.user.firstname ~ " " ~ app.user.lastname }}</h2>
                                 <h6 class="text-black/20 text-xs font-normal leading-4">{{ app.user.email }}</h6>
@@ -86,7 +87,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="javascript:;">
+                        <a href="{{ path('admin.category.index') }}">
                             <div class="flex-col gap-1 flex">
                                 <div class="flex-col flex bg-white rounded-lg p-3">
                                     <div class="h-5 gap-3 flex">
@@ -189,7 +190,7 @@
                                             </g>
                                         </svg>
                                     </div>
-                                    <h2 class="text-gray-500 text-sm font-medium leading-snug">Déconnexion</h2>
+                                    <a href="{{ path('app_logout') }}" class="text-gray-500 text-sm font-medium leading-snug">Déconnexion</a>
                                 </div>
                             </div>
                         </a>
@@ -199,7 +200,9 @@
         </div>
     {% endblock %}
     {{ include('_partials/_flashes.html.twig') }}
-    {% block in_body %}{% endblock %}
+    {% block in_body %}
+    {% endblock %}
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
 </div>
 {% endblock %}
 

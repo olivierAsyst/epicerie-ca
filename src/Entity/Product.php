@@ -3,9 +3,15 @@
 namespace App\Entity;
 
 use App\Repository\ProductRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Validator\Constraints as Assert;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: ProductRepository::class)]
+#[Vich\Uploadable()]
 class Product
 {
     #[ORM\Id]
@@ -25,6 +31,10 @@ class Product
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $imageUrl = null;
 
+    #[Vich\UploadableField(mapping: 'products', fileNameProperty: 'imageUrl')]
+    #[Assert\Image()]
+    private ?File $image = null;
+
     #[ORM\Column]
     private ?bool $disponible = false;
 
@@ -42,6 +52,17 @@ class Product
 
     #[ORM\ManyToOne(inversedBy: 'products')]
     private ?Category $category = null;
+
+    /**
+     * @var Collection<int, Commande>
+     */
+    #[ORM\ManyToMany(targetEntity: Commande::class, mappedBy: 'produits')]
+    private Collection $User;
+
+    public function __construct()
+    {
+        $this->User = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -92,6 +113,17 @@ class Product
     public function setImageUrl(?string $imageUrl): static
     {
         $this->imageUrl = $imageUrl;
+
+        return $this;
+    }
+    public function getImage(): ?File
+    {
+        return $this->image;
+    }
+
+    public function setImage(?File $image): static
+    {
+        $this->image = $image;
 
         return $this;
     }
@@ -164,6 +196,33 @@ class Product
     public function setCategory(?Category $category): static
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Commande>
+     */
+    public function getUser(): Collection
+    {
+        return $this->User;
+    }
+
+    public function addUser(Commande $user): static
+    {
+        if (!$this->User->contains($user)) {
+            $this->User->add($user);
+            $user->addProduit($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUser(Commande $user): static
+    {
+        if ($this->User->removeElement($user)) {
+            $user->removeProduit($this);
+        }
 
         return $this;
     }

@@ -1,12 +1,13 @@
 {% extends 'admin/base_admin.html.twig' %}
 
-{% block title %}Ajout de produit{% endblock %}
+{% block title %}Mis a jour de produit {{product.name}}{% endblock %}
 {% block in_body %}
         <div class="w-full max-w-3xl h-full md:h-auto">
         <!-- Modal content -->
         <div class="bg-white rounded-lg sm:p-5">
+            <!-- Modal header -->
             <div class="flex justify-between items-center pb-4 mb-4 rounded-t border-b sm:mb-5 dark:border-gray-600">
-                <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Ajout de produit</h3>
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Mis a jour du produit {{product.name}}</h3>
             </div>
             <!-- Modal body -->
             {{ form_start(form) }}
@@ -61,7 +62,7 @@
                     </div>
                 </div>
                 <div class="items-center space-y-4 sm:flex sm:space-y-0 sm:space-x-4">
-                    <button type="submit" class="w-full sm:w-auto justify-center text-white inline-flex bg-gradient-to-r from-green-400 to-teal-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Ajouter le produit</button>
+                    <button type="submit" class="w-full sm:w-auto justify-center text-white inline-flex bg-gradient-to-r from-green-400 to-teal-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Mettre a jour le produit</button>
                 </div>
             {{ form_end(form) }}
         </div>

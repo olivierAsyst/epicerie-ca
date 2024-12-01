@@ -7,4 +7,8 @@ import './bootstrap.js';
  */
 import './styles/app.css';
 
+import './js/tailwindfrom.js'
+
+import './js/modal.js'
+
 console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');

@@ -46,8 +46,8 @@ class ProductController extends AbstractController
         ]);
     }
 
-    #[Route('/edit', 'update', methods: ['GET', 'POST'], requirements: ['id'=>Requirement::DIGITS])]
-    public function update(Request $request, EntityManagerInterface $em, Product $product)
+    #[Route('/{id}', 'update', methods: ['GET', 'POST'], requirements: ['id'=>Requirement::DIGITS])]
+    public function update(Request $request, EntityManagerInterface $em, Product $product): Response
     {
         $form = $this->createForm(ProductType::class, $product);
         $form->handleRequest($request);
@@ -59,10 +59,19 @@ class ProductController extends AbstractController
             $this->addFlash('success', 'Le produit a été bien modifié');
             return $this->redirectToRoute('admin.product.index');
         }
-        // return $this->render('admin/product/index.html.twig',[
-            // 'products' = $product;
-            // 'form'=> $form
-        // ]);
+        return $this->render('admin/product/edit.html.twig',[
+            'product' => $product,
+            'form'=> $form
+        ]);
+    }
+
+    #[Route('/{id}/delete', name: 'delete', methods: ['DELETE'], requirements: ['id'=> Requirement::DIGITS])]
+    public function delete(Product $product, EntityManagerInterface $em)
+    {
+        $em->remove($product);
+        $em->flush();
+        $this->addFlash('success','La produit a été bien supprimé');
+        return $this->redirectToRoute('admin.product.index');
     }
 
     public function makeSlug($name): string

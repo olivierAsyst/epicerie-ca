@@ -3,32 +3,17 @@
 {% block title %}Bienvenue sur Alimentation APIC!{% endblock %}
 
 {% block body %}
- {# <div class="pb-5 bg-gradient-to-r from-green-400 to-teal-600 text-white">
-    <div class="container mx-auto">
-        <div class="flex items-center">
-          <div class="w-1/2">
-            <h1 class="text-5xl font-bold">ALIMENTATION EPIC #1 dans le repas Congolaise</h1>
-            <p class="my-4">
-              Nous vous offrons plusieurs services, dont la vente en ligne, dans l'immobilier
-              et pleins d'autres service publicitaires, etc. 
-            </p>
-            <a href="#" class="bg-white uppercase font-bold px-10 py-4 
-            text-green-700 rounded inline-flex">Decouvrir</a>
-          </div>
-        </div>
-    </div>
-</div> #}
 <section class="pb-5 bg-gradient-to-r from-green-400 to-teal-600">
     <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
         <div class="mr-auto place-self-center lg:col-span-7">
             <h1 class="text-white max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">Alimentation EPIC #1 des repas Congolaise</h1>
             <p class="max-w-2xl mb-6 font-light text-gray-100 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">From checkout to global sales tax compliance, companies around the world use Flowbite to simplify their payment stack.</p>
             <a href="#" class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
-                Get started
+                Commencer
                 <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
             </a>
             <a href="#" class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-100 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
-                Speak to Sales
+                S'adresser au service des ventes
             </a> 
         </div>
         <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
@@ -36,4 +21,35 @@
         </div>                
     </div>
 </section>
+<section class="bg-white dark:bg-gray-900">
+  <div class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
+      <div class="max-w-screen-md mb-8 lg:mb-16">
+          <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Services actuellement disponibles</h2>
+      </div>
+      <div class="flex gap-5">
+          <div class="w-100">
+              <div class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900">
+                <i class="las la-fish w-5 h-5 flex items-center text-primary-700 text-xl"></i>
+              </div>
+              <h3 class="mb-2 text-xl font-bold dark:text-white">Produits Bruts, Prêts à Être Cuisinés !</h3>
+              <p class="text-gray-500 dark:text-gray-400 text-justify">Découvrez notre sélection de produits africains authentiques, soigneusement choisis pour vous permettre de recréer chez vous les saveurs uniques de l'Afrique. Des ingrédients frais et de qualité, parfaits pour vos recettes maison.</p>
+          </div>
+          <div>
+              <div class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900">
+                <i class="las la-hamburger flex items-center w-5 h-5 text-primary-700 text-xl"></i>              
+                </div>
+              <h3 class="mb-2 text-xl font-bold dark:text-white">Plats Préparés, Prêts à Déguster !</h3>
+              <p class="text-gray-500 dark:text-gray-400 text-justify">Manque de temps pour cuisiner ? Pas de problème ! Profitez de nos plats faits maison, préparés avec amour et inspirés des traditions culinaires africaines. Commandez, dégustez, et laissez-vous transporter par un voyage gastronomique.</p>
+          </div>
+          <div>
+              <div class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900">
+                <i class="las la-dolly-flatbed flex items-center text-primary-700 text-xl"></i>
+              </div>
+              <h3 class="mb-2 text-xl font-bold dark:text-white">Livraison Rapide et Flexible</h3>
+              <p class="text-gray-700 dark:text-gray-400 text-justify">Pas le temps de vous déplacer ? Nous vous simplifions la vie ! Commandez vos produits ou plats préférés directement depuis notre site et choisissez la livraison. Nous apportons vos saveurs africaines préférées à votre porte, avec des frais de livraison raisonnables selon votre emplacement.</p>
+          </div>
+      </div>
+  </div>
+</section>
+
 {% endblock %}
